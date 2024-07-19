@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chương Trình Mảng Số</title>
+</head>
+<body>
+<h1>Chương Trình Mảng Số</h1>
+
+<label for="soNhap">Nhập số:</label>
+<input type="text" id="soNhap" placeholder="Nhập số">
+<button onclick="themSo()">Thêm Số vào Mảng</button>
+<button onclick="demSoAm()">Đếm Số Âm</button>
+
+<p id="mangSo">Mảng số hiện tại: []</p>
+<p id="ketQua"></p>
+
+<script>
+    let mangSo = [];
+
+    function themSo() {
+        const input = document.getElementById('soNhap').value;
+        const so = parseFloat(input);
+        if (!isNaN(so)) {
+            mangSo.push(so);
+            document.getElementById('soNhap').value = '';
+            hienThiMang();
+        }
+    }
+
+    function demSoAm() {
+        const soAm = mangSo.filter(num => num < 0).length;
+        document.getElementById('ketQua').textContent = `Số lượng số âm trong mảng là ${soAm}.`;
+    }
+
+    function hienThiMang() {
+        document.getElementById('mangSo').textContent = `Mảng số hiện tại: [${mangSo.join(', ')}]`;
+    }
+</script>
+</body>
+</html>

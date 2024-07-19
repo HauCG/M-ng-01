@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Kiểm Tra Số Trong Mảng</title>
+</head>
+<body>
+
+<p id="ketQua"></p>
+
+<script>
+    let arr = [];
+
+    let i = 0;
+    do {
+        let item = prompt("Enter item : " + i);
+        let numberItem = new Number(item);
+        if (numberItem instanceof Number && !isNaN(numberItem)) {
+            arr.push(numberItem.valueOf());
+            i++;
+        } else {
+            alert("Item not a number");
+        }
+    } while (i < 10);
+
+    let x = prompt("Nhap gia tri can tim: ");
+    let numberX = new Number(x);
+
+    x = numberX.valueOf();
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] === x) {
+            alert("Gia tri " + x + " xuat hien tai vi tri thu " + i);
+            break;
+        }
+    }
+</script>
+</body>
+</html>

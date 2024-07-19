@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Gộp Mảng</title>
+</head>
+<body>
+<h1>Gộp Mảng</h1>
+<label for="arr1">10 số mảng 1, cách bởi phẩy:</label>
+<input type="text" id="arr1">
+<br>
+<label for="arr2">10 số mảng 2, cách bởi phẩy:</label>
+<input type="text" id="arr2">
+<br>
+<button onclick="processArray()">Gộp Mảng</button>
+<p id="resultC"></p>
+
+<script>
+    function processArray() {
+        // Duyệt dữ liệu mảng
+        const arr1 = document.getElementById('arr1').value.split(',').map(Number);
+        const arr2 = document.getElementById('arr2').value.split(',').map(Number);
+
+        if (arr1.length !== 10 || arr2.length !== 10 || arr1.some(isNaN) || arr2.some(isNaN)) {
+            document.getElementById('result').textContent = "Vui lòng nhập đúng 10 số nguyên cho mỗi mảng.";
+            return;
+        }
+
+        const c = arr2.concat(arr1);
+        document.getElementById('resultC').textContent = "Mảng c: " + c.join(', ');
+    }
+</script>
+</body>
+</html>

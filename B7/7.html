@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Array Manipulation</title>
+</head>
+<body>
+<h1>Array Manipulation</h1>
+<label>Nhập 10 số nguyên cách nhau bởi dấu phẩy:</label>
+<input type="text" id="arrayInput">
+<label>Nhập số nguyên V:</label>
+<input type="number" id="valueInput">
+<button onclick="processArray()">Xử lý</button>
+<p id="result"></p>
+<script>
+    function processArray() {
+        const array = document.getElementById('arrayInput').value.split(',').map(Number);
+        const value = parseInt(document.getElementById('valueInput').value);
+        const index = array.indexOf(value);
+        document.getElementById('result').textContent = index !== -1 ?
+            `Số ${value} đã được xoá khỏi mảng. Mảng sau khi xử lý: ${array.filter(num => num !== value).join(', ')}` :
+            `Số ${value} không có trong mảng.`;
+    }
+</script>
+</body>
+</html>

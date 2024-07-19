@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chương Trình Mảng Số</title>
+</head>
+<body>
+<h1>Chương Trình Mảng Số</h1>
+
+<label for="soNhap">Nhập số:</label>
+<input type="text" id="soNhap" placeholder="Nhập số">
+<button onclick="themSo()">Thêm Số vào Mảng</button>
+<button onclick="timGiaTriTrungBinh()">Tìm Giá Trị Trung Bình</button>
+
+<p id="mangSo">Mảng số hiện tại: []</p>
+<p id="ketQua"></p>
+
+
+<script>
+    let mangSo = [];
+
+    function themSo() {
+        const input = document.getElementById('soNhap').value;
+        const so = parseFloat(input);
+        if (!isNaN(so)) {
+            mangSo.push(so);
+            document.getElementById('soNhap').value = '';
+            hienThiMang();
+        }
+    }
+
+    function timGiaTriTrungBinh() {
+        if (mangSo.length > 0) {
+            const tong = mangSo.reduce((a, b) => a + b, 0);
+            const giaTriTrungBinh = tong / mangSo.length;
+            document.getElementById('ketQua').textContent = `Giá trị trung bình của mảng là ${giaTriTrungBinh}.`;
+        } else {
+            document.getElementById('ketQua').textContent = 'Hãy nhập số.';
+        }
+    }
+
+    function hienThiMang() {
+        document.getElementById('mangSo').textContent = `Mảng số hiện tại: [${mangSo.join(', ')}]`;
+    }
+</script>
+</body>
+</html>
